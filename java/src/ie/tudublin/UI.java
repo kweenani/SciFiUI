@@ -48,7 +48,7 @@ public class UI extends PApplet
         for (int currStars = 0; currStars <= noOfStars; currStars++)
         {
           
-          ellipse(random(0, width), random(0, height), 2, 2);
+          ellipse(random(0, width), random(0, height), 1, 1);
         }
        
       
