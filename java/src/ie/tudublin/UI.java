@@ -6,6 +6,7 @@ public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+    Rotate circ;
 
     boolean[] keys = new boolean[1024];
 
@@ -36,16 +37,34 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
+        circ = new Rotate();
+      
     }
+     
+      
+      void stars() {
+        int noOfStars = 100;
+        background(0);
+        for (int currStars = 0; currStars <= noOfStars; currStars++)
+        {
+          
+          ellipse(random(0, width), random(0, height), 2, 2);
+        }
+       
+      
+      
+    }
+      
 
     public void draw()
     {
         background(0);
+        stars();
         b.render();
-
-        mc.update();
-        mc.render();
-
+        
+       mc.update();
+       mc.render();
+       circ.render();
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");

@@ -5,6 +5,12 @@ import processing.core.PApplet;
 
 public class Rotate extends PApplet{
 
+
+    public Rotate()
+    {
+
+    }
+
     float x = 250;
     float y = 250;
     float x1 = 250;
@@ -23,7 +29,7 @@ public class Rotate extends PApplet{
     }
 
     public void circle(){
-        ellipse(x,y,x1,y1);
+        
     }
     public void update(){
         x += xspeed;  // x = xspeed + x;
@@ -33,13 +39,12 @@ public class Rotate extends PApplet{
         }
     }
 
-    public void draw(){
-        background(0);
-        stroke(255);
-        noFill();
-
-        update();
-        circle();
+    public void render(){
+        
+        System.out.println("in here");
+        //ellipse(x,y,x1,y1);
+        
+        
         //drawLine();
 
     } 
