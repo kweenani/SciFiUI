@@ -12,7 +12,7 @@ public class Radar{
     }
     
 
-    public void render({
+    public void render(){
         ui. stroke(255);
         ui.noFill();
         ui.ellipse(400,400,400,400);
