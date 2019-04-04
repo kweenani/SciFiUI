@@ -41,7 +41,7 @@ public class Rotate extends PApplet{
 
     public void render(){
         
-        System.out.println("in here");
+        //System.out.println("in here");
         //ellipse(x,y,x1,y1);
         
         
