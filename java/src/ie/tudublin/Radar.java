@@ -22,8 +22,8 @@ public class Radar{
         ui.ellipse(400,400,300,300);
         ui.ellipse(400,400,250,250);
         ui.ellipse(400,400,200,200);
-        ui.line(400,200,400,600);
-        ui.line(200,400,600,400);
+        ui.line(400,150,400,650); //x,y,x1,y1
+        ui.line(150,400,650,400);
     }
 
     public void rotateLine(){
