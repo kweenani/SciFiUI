@@ -26,7 +26,7 @@ public class Radar{
         ui.line(200,400,600,400);
     }
 
-    public void rotateline(){
+    public void rotateLine(){
         ui.pushMatrix();
              ui.translate(ui.width/2,ui.height/2);
              ui.rotate(ui.radians(r));  
