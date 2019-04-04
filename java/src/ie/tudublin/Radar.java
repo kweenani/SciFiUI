@@ -25,3 +25,15 @@ public class Radar{
         ui.line(400,200,400,600);
         ui.line(200,400,600,400);
     }
+
+    public void rotateline(){
+        ui.pushMatrix();
+             ui.translate(ui.width/2,ui.height/2);
+             ui.rotate(ui.radians(r));  
+             ui.line(0,0,0,200);
+        ui.popMatrix();
+
+        r += 0.5;
+    }
+
+
