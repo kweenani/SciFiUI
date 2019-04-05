@@ -30,7 +30,7 @@ public class Radar{
         ui.pushMatrix();
              ui.translate(ui.width/2,ui.height/2);
              ui.rotate(ui.radians(r));  
-             ui.line(0,0,0,200);
+             ui.line(0,0,0,250);
         ui.popMatrix();
 
         r += 0.5;
