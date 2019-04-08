@@ -41,13 +41,14 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         circ = new Rotate();
-        radar.add(new Radar(400,400,500, this));
-        radar.add(new Radar(400,400,450, this));
-        radar.add(new Radar(400,400,400, this));
-        radar.add(new Radar(400,400,350, this));
-        radar.add(new Radar(400,400,300, this));
-        radar.add(new Radar(400,400,250, this));
-        radar.add(new Radar(400,400,200, this));
+        radar.add(new Radar(400,400,500, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,450, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,400, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,350, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,300, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,250, 0, 0, 0, 0, this));
+        radar.add(new Radar(400,400,200, 0, 0, 0, 0, this));
+        radarLine = new Radar(0, 0, 0, 0, 0, 0, 250, this);
       
     }
      
