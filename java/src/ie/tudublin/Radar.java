@@ -3,28 +3,28 @@ package ie.tudublin;
 import processing.core.PApplet;
 
 public class Radar{
+    float x, y;
     PApplet ui;
     float r;
 
-    public Radar(PApplet ui, float r){
-        this.ui = ui;
+    public Radar(float x, float y, float r, PApplet ui){
+        this.x = x;
+        this.y = y;
         this.r = r;
+        this.ui = ui;
+    }
+
+    public void drawRadar()
+    {
+        ui.noFill();
+        ui.stroke(255);
+        ui.ellipse(x, y, r, r);
     }
     
-
-    public void render(){
-        ui. stroke(255);
-        ui.noFill();
-        ui.ellipse(400,400,500,500); // x,y, width,height
-        ui.ellipse(400,400,450,450);
-        ui.ellipse(400,400,400,400);
-        ui.ellipse(400,400,350,350);
-        ui.ellipse(400,400,300,300);
-        ui.ellipse(400,400,250,250);
-        ui.ellipse(400,400,200,200);
-        ui.line(400,150,400,650); //x,y,x1,y1
-        ui.line(150,400,650,400);
-    }
+        
+    //     ui.line(400,150,400,650); //x,y,x1,y1
+    //     ui.line(150,400,650,400);
+    // }
 
     public void rotateLine(){
         ui.pushMatrix();

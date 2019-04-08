@@ -1,13 +1,15 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import java.util.ArrayList;
 
 public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
     Rotate circ;
-    Radar radar;
+    ArrayList<Radar> radar = new ArrayList<>();
+    Radar radarLine;
 
     boolean[] keys = new boolean[1024];
 
@@ -39,7 +41,13 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         circ = new Rotate();
-        radar = new Radar(this,0);
+        radar.add(new Radar(400,400,500, this));
+        radar.add(new Radar(400,400,450, this));
+        radar.add(new Radar(400,400,400, this));
+        radar.add(new Radar(400,400,350, this));
+        radar.add(new Radar(400,400,300, this));
+        radar.add(new Radar(400,400,250, this));
+        radar.add(new Radar(400,400,200, this));
       
     }
      
@@ -68,8 +76,12 @@ public class UI extends PApplet
        mc.update();
        mc.render();
        circ.render();
-       radar.render();
-       radar.rotateLine();
+    //    radar.render();
+        radarLine.rotateLine();
+        for(int i = 0; i < radar.size(); i++)  //loop new
+        {
+            radar.get(i).drawRadar();
+        }
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
