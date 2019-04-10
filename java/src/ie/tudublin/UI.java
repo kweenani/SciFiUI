@@ -11,6 +11,7 @@ public class UI extends PApplet
 {
 
     Button b;
+    Button b2;
 
     MovingCircle mc;
     MovingCircle mc2;
@@ -75,7 +76,8 @@ public class UI extends PApplet
 
     {
 
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
+        b = new Button(this, 250, 500, 100, 50, "I am a button");
+        b2 = new Button(this, 450, 500, 100, 50, "I am a buttom");
 
         mc = new MovingCircle(this, 500, 350, 50);
         mc2 = new MovingCircle(this, 300, 350, 50);
@@ -131,6 +133,7 @@ public class UI extends PApplet
         stars();
 
         b.render();
+        b2.render();
 
         
 
