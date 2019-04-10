@@ -64,7 +64,7 @@ public class Radar{
 
              ui.rotate(ui.radians(r));  
 
-             ui.line(0,0,0,200);
+             ui.line(0,0,0,250);
 
         ui.popMatrix();
 
