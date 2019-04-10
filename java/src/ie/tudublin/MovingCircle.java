@@ -34,10 +34,10 @@ public class MovingCircle
 
     public void update()
     {
-        x += dx;
-        if ((x > ui.width - radius) || (x < radius))
-        {
-            dx *= -1;
-        }
+        // x += dx;
+        // if ((x > ui.width - radius) || (x < radius))
+        // {
+        //     dx *= -1;
+        // }
     }
 }

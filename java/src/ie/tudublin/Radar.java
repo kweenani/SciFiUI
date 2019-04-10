@@ -1,3 +1,5 @@
+   
+
 package ie.tudublin;
 
 
@@ -8,57 +10,49 @@ import processing.core.PApplet;
 
 public class Radar{
 
-    float x, y, r;//for circle
-
     PApplet ui;
 
-    float x1, y1, x2, y2;
+    float r;
 
 
 
-    public Radar(float x, float y, float r, float x1, float y1, float x2, float y2, PApplet ui){
-
-        this.x = x;
-
-        this.y = y;
-
-        this.r = r;
-
-        this.x1 = x1;
-
-        this.y1 = y1;
-
-        this.x2 = x2;
-
-        this.y2 = y2;
+    public Radar(PApplet ui, float r){
 
         this.ui = ui;
 
-    }
-
-
-
-    public void drawRadar()
-
-    {
-
-        ui.noFill();
-
-        ui.stroke(255);
-
-        ui.ellipse(x, y, r, r);
+        this.r = r;
 
     }
 
     
 
-        
 
-    //     ui.line(400,150,400,650); //x,y,x1,y1
 
-    //     ui.line(150,400,650,400);
+    public void render(){
 
-    // }
+        ui. stroke(255);
+
+        ui.noFill();
+
+        ui.ellipse(400,400,500,500); // x,y, width,height
+
+        ui.ellipse(400,400,450,450);
+
+        ui.ellipse(400,400,400,400);
+
+        ui.ellipse(400,400,350,350);
+
+        ui.ellipse(400,400,300,300);
+
+        ui.ellipse(400,400,250,250);
+
+        ui.ellipse(400,400,200,200);
+
+        ui.line(400,150,400,650); //x,y,x1,y1
+
+        ui.line(150,400,650,400);
+
+    }
 
 
 
@@ -70,7 +64,7 @@ public class Radar{
 
              ui.rotate(ui.radians(r));  
 
-             ui.line(x1, y1, x2, y2);
+             ui.line(0,0,0,200);
 
         ui.popMatrix();
 
@@ -81,3 +75,4 @@ public class Radar{
     }
 
     }
+
