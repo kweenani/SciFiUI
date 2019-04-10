@@ -13,7 +13,7 @@ public class UI extends PApplet
     Button b;
 
     MovingCircle mc;
-    //MovingCircle mc2;
+    MovingCircle mc2;
 
     Rotate circ;
 
@@ -78,7 +78,7 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
 
         mc = new MovingCircle(this, 500, 350, 50);
-        //mc2 = new MovingCircle(this, 300, 350, 50);
+        mc2 = new MovingCircle(this, 300, 350, 50);
 
         circ = new Rotate();
 
@@ -136,8 +136,8 @@ public class UI extends PApplet
 
        mc.update();
        mc.render();
-      // mc2.render();
-       //mc2.update();
+       mc2.render();
+       mc2.update();
 
        circ.render();
 
