@@ -23,8 +23,8 @@ public class UI extends PApplet
 
 
 
-    //boolean[] keys = new boolean[1024];
-   // Rain [] rain = new Rain[500]; cil
+    boolean[] keys = new boolean[1024];
+   Rain [] rain = new Rain[500]; 
 
 
     public void keyPressed()
