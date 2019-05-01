@@ -22,8 +22,9 @@ public class UI extends PApplet
 
 
 
-    boolean[] keys = new boolean[1024];
 
+    boolean[] keys = new boolean[1024];
+    Rain [] rain = new Rain[500];
 
 
     public void keyPressed()
@@ -54,6 +55,12 @@ public class UI extends PApplet
 
     }
 
+    public void mousePressed()
+    {
+        mode = 1;
+        // if (mouseX mouseY)
+    }
+
     
 
 
@@ -76,8 +83,8 @@ public class UI extends PApplet
 
     {
 
-        b = new Button(this, 250, 500, 100, 50, "I am a button");
-        b2 = new Button(this, 450, 500, 100, 50, "I am a buttom");
+        b = new Button(this, 250, 500, 100, 50, "Rainy");
+        b2 = new Button(this, 450, 500, 100, 50, "Snow");
 
         mc = new MovingCircle(this, 500, 350, 50);
         mc2 = new MovingCircle(this, 300, 350, 50);
@@ -86,7 +93,15 @@ public class UI extends PApplet
 
         radar = new Radar(this,0);
 
-      
+
+         //for (int i = 0; i < rain. length; i++){
+        //rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
+        //}
+
+        for (int i = 0; i < rain. length; i++){
+            rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
+            }
+        
 
     }
 
@@ -119,44 +134,56 @@ public class UI extends PApplet
     }
 
       
-
+    int mode = 0;
 
 
     public void draw()
 
     {
 
-        background(0);
+        background(230, 230, 250);
 
-        noFill();
-
-        stars();
-
-        b.render();
-        b2.render();
-
-        
-
-       mc.update();
-       mc.render();
-       mc2.render();
-       mc2.update();
-
-       circ.render();
-
-       radar.render();
-
-       radar.rotateLine();
-
-        if (checkKey(LEFT))
-
+        if (mode == 0)
         {
 
-            System.out.println("Left arrow key pressed");
+            noFill();
 
+            stars();
+
+            b.render();
+            b2.render();
+
+            
+
+            mc.update();
+            mc.render();
+            mc2.render();
+            mc2.update();
+
+            circ.render();
+
+            radar.render();
+
+            radar.rotateLine();
+        }
+        else if (mode == 1)
+        {
+       
+
+        
+            for (int i = 0; i < rain.length; i++)
+            {
+                rain[i].fall();
+                rain[i].show();
+            } 
+        }
+        if (checkKey(LEFT))
+        {
+            System.out.println("Left arrow key pressed");
         }
 
+            
+        
     }
-
 }
 
