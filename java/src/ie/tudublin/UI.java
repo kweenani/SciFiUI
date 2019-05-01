@@ -23,8 +23,8 @@ public class UI extends PApplet
 
 
 
-    boolean[] keys = new boolean[1024];
-    Rain [] rain = new Rain[500];
+    //boolean[] keys = new boolean[1024];
+   // Rain [] rain = new Rain[500]; cil
 
 
     public void keyPressed()
@@ -98,7 +98,7 @@ public class UI extends PApplet
         //rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
         //}
 
-        for (int i = 0; i < rain. length; i++){
+       for (int i = 0; i < rain. length; i++){  
             rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
             }
         
@@ -170,12 +170,12 @@ public class UI extends PApplet
         {
        
 
-        
-            for (int i = 0; i < rain.length; i++)
-            {
-                rain[i].fall();
-                rain[i].show();
-            } 
+            
+           for (int i = 0; i < rain.length; i++)
+           {
+               rain[i].fall();
+               rain[i].show();
+           } 
         }
         if (checkKey(LEFT))
         {
