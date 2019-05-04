@@ -80,15 +80,23 @@ public class UI extends PApplet
             {
                 mode = 1;
             } 
+        }    
             if(mouseX > snowx && mouseX < (snowx + buttonw)) //this is checking the x mouse
         {
             if(mouseY > snowy && mouseY < (snowy + buttonh)) // this is also checking the y mouse function
             {
                 mode = 2;
             } 
+        }     
+ 
+            if(mouseX > cloudyx && mouseX < (cloudyx + buttonw)) //this is checking the x mouse
+        {
+            if(mouseY > cloudyy && mouseY < (cloudyy + buttonh)) // this is also checking the y mouse function
+            {
+                mode = 3;
+            } 
         }
 
-        }
 
        
     }
@@ -125,12 +133,16 @@ public class UI extends PApplet
         rainyy = 500;
         snowx = 450;
         snowy = 500;
+        cloudyx = 250;
+        cloudyy = 350;
+
 
         
         buttonw = 100;
         buttonh = 50;
         b = new Button(this, rainyx, rainyy, buttonw, buttonh, "Rainy");
         b2 = new Button(this, snowx, snowy, buttonw, buttonh, "Snow");
+        b3 = new Button(this, cloudyx, cloudyy, buttonw, buttonh, "Cloudy");
 
         mc = new MovingCircle(this, 500, 350, 50);
         mc2 = new MovingCircle(this, 300, 350, 50);
