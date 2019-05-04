@@ -156,18 +156,18 @@ public class UI extends PApplet
             rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
         }
 
+        
         for (int i = 0; i < snow. length; i++){  
             snow[i] = new SnowDrop(this,random(width),random(-200, -100),random(4, 10));
         }
 
-        
-       
+        for (int i = 0; i < clouds. length; i++){  
+            clouds[i] = new Cloud(this);
+        }
 
     }
 
      
-
-      
 
       void stars() {
 
@@ -218,6 +218,14 @@ public class UI extends PApplet
             {
                 snow[i].fall();
                 snow[i].show();
+            } 
+        }
+        else if (mode == 3)
+        {
+            for (int i = 0; i < clouds.length; i++)
+            {
+                clouds[i].drift();
+                clouds[i].show();
             } 
         }
 
