@@ -134,7 +134,7 @@ public class UI extends PApplet
         snowx = 450;
         snowy = 500;
         cloudyx = 250;
-        cloudyy = 350;
+        cloudyy = 300;
 
 
         
