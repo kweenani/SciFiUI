@@ -24,6 +24,9 @@ public class UI extends PApplet
 
     int rainyx;
     int rainyy;
+    int snowx;
+    int snowy;
+
     int buttonw;
     int buttonh;
     
@@ -35,6 +38,8 @@ public class UI extends PApplet
 
     boolean[] keys = new boolean[1024];
     Rain [] rain = new Rain[500]; 
+    SnowDrop[] snow = new SnowDrop[500];
+
     
 
     public void keyPressed()
