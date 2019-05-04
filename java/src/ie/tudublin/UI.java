@@ -12,20 +12,30 @@ public class UI extends PApplet
 
     Button b;
     Button b2;
+    Button b3;
 
     MovingCircle mc;
     MovingCircle mc2;
+    MovingCircle mc3;
 
     Rotate circ;
 
     Radar radar;
 
+    int rainyx;
+    int rainyy;
+    int buttonw;
+    int buttonh;
+    
+    
+    
+
 
 
 
     boolean[] keys = new boolean[1024];
-   Rain [] rain = new Rain[500]; 
-
+    Rain [] rain = new Rain[500]; 
+    
 
     public void keyPressed()
 
@@ -57,8 +67,15 @@ public class UI extends PApplet
 
     public void mousePressed()
     {
-        mode = 1;
-        // if (mouseX mouseY)
+        if(mouseX > rainyx && mouseX < (rainyx + buttonw)) //this is checking the x mouse
+        {
+            if(mouseY > rainyy && mouseY < (rainyy + buttonh)) // this is also checking the y mouse function
+            {
+                mode = 1;
+            } 
+        }
+
+       
     }
 
     
@@ -69,6 +86,13 @@ public class UI extends PApplet
 
     {
 
+        /*
+        hgcseg
+        xexx
+        dxrexe
+        xcxer
+        xex
+        */
         size(800, 800);
 
         // Use fullscreen instead of size to make your interface fullscreen
@@ -82,10 +106,13 @@ public class UI extends PApplet
     public void setup()
 
     {
-
-        b = new Button(this, 250, 500, 100, 50, "Rainy");
-        b2 = new Button(this, 450, 500, 100, 50, "Snow");
-
+        rainyx = 250;
+        rainyy = 500;
+        
+        buttonw = 100;
+        buttonh = 50;
+        b = new Button(this, rainyx, rainyy, buttonw, buttonh, "Rainy");
+        
         mc = new MovingCircle(this, 500, 350, 50);
         mc2 = new MovingCircle(this, 300, 350, 50);
 
@@ -94,14 +121,11 @@ public class UI extends PApplet
         radar = new Radar(this,0);
 
 
-         //for (int i = 0; i < rain. length; i++){
-        //rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
-        //}
-
        for (int i = 0; i < rain. length; i++){  
             rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
-            }
+        }
         
+       
 
     }
 
@@ -118,11 +142,7 @@ public class UI extends PApplet
         for (int currStars = 0; currStars <= noOfStars; currStars++)
 
         {
-
-          
-
           ellipse(random(0, width), random(0, height), 2, 2);
-
         }
 
        
@@ -145,44 +165,36 @@ public class UI extends PApplet
 
         if (mode == 0)
         {
-
             noFill();
-
             stars();
-
-            b.render();
-            b2.render();
-
-            
-
-            mc.update();
-            mc.render();
-            mc2.render();
-            mc2.update();
-
-            circ.render();
-
-            radar.render();
-
-            radar.rotateLine();
         }
         else if (mode == 1)
         {
-       
-
-            
-           for (int i = 0; i < rain.length; i++)
-           {
-               rain[i].fall();
-               rain[i].show();
-           } 
+            for (int i = 0; i < rain.length; i++)
+            {
+                rain[i].fall();
+                rain[i].show();
+            } 
         }
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
+        
 
-            
+        b.render();
+        b2.render();
+        b3.render();
+        
+
+        mc.update();
+        mc.render();
+        mc2.render();
+        mc2.update();
+
+        circ.render();
+
+        radar.render();
+
+        radar.rotateLine();
+
+
         
     }
 }
