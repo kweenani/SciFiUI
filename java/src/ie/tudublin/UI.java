@@ -78,6 +78,14 @@ public class UI extends PApplet
             {
                 mode = 1;
             } 
+            if(mouseX > snowx && mouseX < (snowx + buttonw)) //this is checking the x mouse
+        {
+            if(mouseY > snowy && mouseY < (snowy + buttonh)) // this is also checking the y mouse function
+            {
+                mode = 2;
+            } 
+        }
+
         }
 
        
@@ -113,11 +121,15 @@ public class UI extends PApplet
     {
         rainyx = 250;
         rainyy = 500;
+        snowx = 450;
+        snowy = 500;
+
         
         buttonw = 100;
         buttonh = 50;
         b = new Button(this, rainyx, rainyy, buttonw, buttonh, "Rainy");
-        
+        b2 = new Button(this, snowx, snowy, buttonw, buttonh, "Snow");
+
         mc = new MovingCircle(this, 500, 350, 50);
         mc2 = new MovingCircle(this, 300, 350, 50);
 
@@ -129,6 +141,11 @@ public class UI extends PApplet
        for (int i = 0; i < rain. length; i++){  
             rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
         }
+
+        for (int i = 0; i < snow. length; i++){  
+            snow[i] = new SnowDrop(this,random(width),random(-200, -100),random(4, 10));
+        }
+
         
        
 
@@ -181,6 +198,15 @@ public class UI extends PApplet
                 rain[i].show();
             } 
         }
+        else if (mode == 2)
+        {
+            for (int i = 0; i < snow.length; i++)
+            {
+                snow[i].fall();
+                snow[i].show();
+            } 
+        }
+
         
 
         b.render();
