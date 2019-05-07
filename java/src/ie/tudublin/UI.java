@@ -3,6 +3,7 @@ package ie.tudublin;
 
 
 import processing.core.PApplet;
+import ddf.minim.*;
 
 
 
@@ -13,6 +14,7 @@ public class UI extends PApplet
     Button b;
     Button b2;
     Button b3;
+    Button b4;
 
     MovingCircle mc;
     MovingCircle mc2;
@@ -28,8 +30,15 @@ public class UI extends PApplet
     int snowy;
     int cloudyx;
     int cloudyy;
+    int sunnyx;
+    int sunnyy;
     int buttonw;
     int buttonh;
+
+    Trees tree;
+
+    AudioPlayer cTrack, sTrack, rTrack, swTrack;
+    Minim cMinim, sMinim, rMinim, swMinim;
 
     
     
@@ -74,27 +83,51 @@ public class UI extends PApplet
 
     public void mousePressed()
     {
-        if(mouseX > rainyx && mouseX < (rainyx + buttonw)) //this is checking the x mouse
+        if((mouseX > rainyx && mouseX < (rainyx + buttonw)) && (mouseY > rainyy && mouseY < (rainyy + buttonh)))//this is checking the x mouse
         {
-            if(mouseY > rainyy && mouseY < (rainyy + buttonh)) // this is also checking the y mouse function
-            {
-                mode = 1;
-            } 
+            
+            mode = 1;
+            swTrack.pause();
+            sTrack.pause();
+            cTrack.pause();
+            rTrack.play();
+            rTrack.loop();
+
         }    
-            if(mouseX > snowx && mouseX < (snowx + buttonw)) //this is checking the x mouse
+        else if((mouseX > snowx && mouseX < (snowx + buttonw)) && (mouseY > snowy && mouseY < (snowy + buttonh))) //this is checking the x mouse
         {
-            if(mouseY > snowy && mouseY < (snowy + buttonh)) // this is also checking the y mouse function
-            {
-                mode = 2;
-            } 
+           
+            mode = 2;
+            rTrack.pause();
+            sTrack.pause();
+            cTrack.pause();
+            swTrack.play();
+            swTrack.loop();
+            
         }     
  
-            if(mouseX > cloudyx && mouseX < (cloudyx + buttonw)) //this is checking the x mouse
+        else if((mouseX > cloudyx && mouseX < (cloudyx + buttonw)) && (mouseY > cloudyy && mouseY < (cloudyy + buttonh))) //this is checking the x mouse
         {
-            if(mouseY > cloudyy && mouseY < (cloudyy + buttonh)) // this is also checking the y mouse function
-            {
-                mode = 3;
-            } 
+            
+            mode = 3;
+            swTrack.pause();
+            sTrack.pause();
+            rTrack.pause();
+            cTrack.play();
+            cTrack.loop();
+             
+        }
+
+        else if((mouseX > sunnyx && mouseX < (sunnyx + buttonw)) && (mouseY > sunnyy && mouseY < (sunnyy + buttonh))) //this is checking the x mouse
+        {
+            
+            mode = 4;
+            swTrack.pause();
+            rTrack.pause();
+            cTrack.pause();
+            sTrack.play();
+            sTrack.loop();
+        
         }
 
 
@@ -135,17 +168,30 @@ public class UI extends PApplet
         snowy = 500;
         cloudyx = 250;
         cloudyy = 300;
+        sunnyx = 450;
+        sunnyy = 300;
+        tree = new Trees(280, 450, 60, 150, this);
 
+        cMinim = new Minim(this);
+        sMinim = new Minim(this);
+        rMinim = new Minim(this);
+        swMinim = new Minim(this);
 
+        cTrack = cMinim.loadFile("cloudy.mp3");
+        sTrack = sMinim.loadFile("sunny.mp3");
+        rTrack = rMinim.loadFile("rain.mp3");
+        swTrack = swMinim.loadFile("snow.mp3");
+            
         
         buttonw = 100;
         buttonh = 50;
         b = new Button(this, rainyx, rainyy, buttonw, buttonh, "Rainy");
         b2 = new Button(this, snowx, snowy, buttonw, buttonh, "Snow");
         b3 = new Button(this, cloudyx, cloudyy, buttonw, buttonh, "Cloudy");
+        b4 = new Button(this, sunnyx, sunnyy, buttonw, buttonh, "Sunny");
 
-        mc = new MovingCircle(this, 500, 350, 50);
-        mc2 = new MovingCircle(this, 300, 350, 50);
+        // mc = new MovingCircle(this, 500, 350, 50);
+        // mc2 = new MovingCircle(this, 300, 350, 50);
 
         circ = new Rotate();
 
@@ -228,18 +274,25 @@ public class UI extends PApplet
                 clouds[i].show();
             } 
         }
+        else if (mode == 4)
+        {
+            tree.drawSun();
+            tree.drawTrees();
+            tree.drawLeaves();
+        }
 
         
 
         b.render();
         b2.render();
         b3.render();
+        b4.render();
         
 
-        mc.update();
-        mc.render();
-        mc2.render();
-        mc2.update();
+        // mc.update();
+        // mc.render();
+        // mc2.render();
+        // mc2.update();
 
         circ.render();
 
