@@ -142,13 +142,6 @@ public class UI extends PApplet
 
     {
 
-        /*
-        hgcseg
-        xexx
-        dxrexe
-        xcxer
-        xex
-        */
         size(800, 800);
 
         // Use fullscreen instead of size to make your interface fullscreen
