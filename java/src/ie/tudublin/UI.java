@@ -215,7 +215,7 @@ public class UI extends PApplet
 
      
 
-      void stars() {
+      public void stars() {
 
         int noOfStars = 100;
 
