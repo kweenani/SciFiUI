@@ -1,4 +1,4 @@
-ackage ie.tudublin;
+package ie.tudublin;
 
 
 
@@ -134,32 +134,34 @@ public class UI extends PApplet
        
     }
 
+    
+
+
 
     public void settings()
 
+    {
 
-
-
-    /*
+        /*
         hgcseg
         xexx
         dxrexe
         xcxer
         xex
         */
-
         size(800, 800);
+
         // Use fullscreen instead of size to make your interface fullscreen
+
         //fullScreen(); 
 
-
-
     }
-    
-    public void setup()
-    
-    {
 
+
+
+    public void setup()
+
+    {
         rainyx = 250;
         rainyy = 500;
         snowx = 450;
@@ -170,103 +172,106 @@ public class UI extends PApplet
         sunnyy = 300;
         tree = new Trees(280, 450, 60, 150, this);
 
+        cMinim = new Minim(this);
+        sMinim = new Minim(this);
+        rMinim = new Minim(this);
+        swMinim = new Minim(this);
 
-
-       
+        cTrack = cMinim.loadFile("cloudy.mp3");
+        sTrack = sMinim.loadFile("sunny.mp3");
+        rTrack = rMinim.loadFile("rain.mp3");
+        swTrack = swMinim.loadFile("snow.mp3");
+            
+        
         buttonw = 100;
         buttonh = 50;
         b = new Button(this, rainyx, rainyy, buttonw, buttonh, "Rainy");
         b2 = new Button(this, snowx, snowy, buttonw, buttonh, "Snow");
         b3 = new Button(this, cloudyx, cloudyy, buttonw, buttonh, "Cloudy");
+        b4 = new Button(this, sunnyx, sunnyy, buttonw, buttonh, "Sunny");
 
+        // mc = new MovingCircle(this, 500, 350, 50);
+        // mc2 = new MovingCircle(this, 300, 350, 50);
 
-        mc = new MovingCircle(this, 500, 350, 50);
-        mc2 = new MovingCircle(this, 300, 350, 50);
-        
         circ = new Rotate();
-         radar = new Radar(this,0);
+
+        radar = new Radar(this,0);
 
 
        for (int i = 0; i < rain. length; i++){  
             rain[i] = new Rain(this,random(width),random(-200, -100),random(4, 10),random(10, 20));
-
         }
 
-       for (int i = 0; i < snow. length; i++){  
-           snow[i] = new SnowDrop(this,random(width),random(-200, -100),random(4, 10));
-
-        }
-       for (int i = 0; i < clouds. length; i++){  
-           clouds[i] = new Cloud(this);
-
+        
+        for (int i = 0; i < snow. length; i++){  
+            snow[i] = new SnowDrop(this,random(width),random(-200, -100),random(4, 10));
         }
 
-
+        for (int i = 0; i < clouds. length; i++){  
+            clouds[i] = new Cloud(this);
+        }
 
     }
-    
-        void stars() {
-        
+
+     
+
+      void stars() {
+
         int noOfStars = 100;
+
         background(0);
-        
+
         for (int currStars = 0; currStars <= noOfStars; currStars++)
 
         {
-                ellipse(random(0, width), random(0, height), 2, 2);
-
+          ellipse(random(0, width), random(0, height), 2, 2);
         }
+
+       
+
+      
+
+      
 
     }
-    
+
+      
     int mode = 0;
+
+
     public void draw()
-    
+
     {
-         background(230, 230, 250);
+
+        background(230, 230, 250);
+
+        if (mode == 0)
         {
-         if (mode == 0)
-          noFill();
-           stars();
-
+            noFill();
+            stars();
         }
-
         else if (mode == 1)
-
         {
             for (int i = 0; i < rain.length; i++)
-
             {
                 rain[i].fall();
                 rain[i].show();
-
             } 
-
         }
         else if (mode == 2)
-
         {
-
             for (int i = 0; i < snow.length; i++)
-
             {
                 snow[i].fall();
                 snow[i].show();
-
             } 
-
-        } 
-
+        }
         else if (mode == 3)
-
         {
- 
             for (int i = 0; i < clouds.length; i++)
-
             {
                 clouds[i].drift();
                 clouds[i].show();
-
             } 
         }
         else if (mode == 4)
@@ -275,26 +280,28 @@ public class UI extends PApplet
             tree.drawTrees();
             tree.drawLeaves();
         }
-    
+
+        
+
         b.render();
         b2.render();
         b3.render();
-        b4. render();
+        b4.render();
+        
 
-    
-        mc.update();
-        mc.render();
-        mc2.render();
-        mc2.update();
+        // mc.update();
+        // mc.render();
+        // mc2.render();
+        // mc2.update();
 
         circ.render();
+
         radar.render();
 
         radar.rotateLine();
 
+
         
-
     }
-
 }
 
