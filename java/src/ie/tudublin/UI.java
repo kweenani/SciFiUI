@@ -98,6 +98,16 @@ public class UI extends PApplet
 
             } 
 
+            if(mouseX > sunnyx && mouseX < (sunnyx + buttonw)) //this is checking the x mouse
+
+            {
+    
+                if(mouseY > sunnyy && mouseY < (sunnyy + buttonh)) // this is also checking the y mouse function
+    
+                {
+    
+                    mode = 4;    
+
         }
 
     }
@@ -174,7 +184,7 @@ public class UI extends PApplet
 
     }
     
-    public void stars() {
+        void stars() {
         
         int noOfStars = 100;
         background(0);
@@ -237,7 +247,12 @@ public class UI extends PApplet
                 clouds[i].show();
 
             } 
-
+        }
+        else if (mode == 4)
+        {
+            tree.drawSun();
+            tree.drawTrees();
+            tree.drawLeaves();
         }
     
         b.render();
