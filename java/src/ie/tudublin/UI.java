@@ -16,9 +16,9 @@ public class UI extends PApplet
     Button b3;
     Button b4;
 
-    MovingCircle mc;
-    MovingCircle mc2;
-    MovingCircle mc3;
+   //ovingCircle mc;
+    //MovingCircle mc2;
+    //sMovingCircle mc3;
 
     Rotate circ;
 
