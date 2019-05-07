@@ -1,10 +1,16 @@
 package ie.tudublin;
 
+
+
 import processing.core.PApplet;
+import ddf.minim.*;
+
+
 
 public class UI extends PApplet
 
 {
+
     Button b;
     Button b2;
     Button b3;
@@ -14,8 +20,8 @@ public class UI extends PApplet
     MovingCircle mc2;
     MovingCircle mc3;
 
-
     Rotate circ;
+
     Radar radar;
 
     int rainyx;
@@ -28,8 +34,14 @@ public class UI extends PApplet
     int sunnyy;
     int buttonw;
     int buttonh;
+
     Trees tree;
 
+    AudioPlayer cTrack, sTrack, rTrack, swTrack;
+    Minim cMinim, sMinim, rMinim, swMinim;
+
+    
+    
     
 
     boolean[] keys = new boolean[1024];
@@ -203,7 +215,7 @@ public class UI extends PApplet
     
     {
          background(230, 230, 250);
-         
+        {
          if (mode == 0)
           noFill();
            stars();
@@ -258,6 +270,7 @@ public class UI extends PApplet
         b.render();
         b2.render();
         b3.render();
+        b4. render();
 
     
         mc.update();
