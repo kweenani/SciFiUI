@@ -1,4 +1,4 @@
-package ie.tudublin;
+ackage ie.tudublin;
 
 
 
@@ -42,88 +42,97 @@ public class UI extends PApplet
 
     
     
-    
+
+
+
 
     boolean[] keys = new boolean[1024];
     Rain [] rain = new Rain[500]; 
     SnowDrop[] snow = new SnowDrop[500];
     Cloud[] clouds = new Cloud[15];
 
-    public void keyPressed()
     
+
+    public void keyPressed()
+
     {
 
-       keys[keyCode] = true;
+        keys[keyCode] = true;
 
     }
+
     
+
     public void keyReleased()
 
     {
 
-      keys[keyCode] = true;
+        keys[keyCode] = true;
 
     }
+
+
 
     public boolean checkKey(int c)
 
     {
-      return keys[c] || keys [Character.toUpperCase(c)];
+
+        return keys[c] || keys [Character.toUpperCase(c)];
 
     }
 
     public void mousePressed()
-
     {
-            if(mouseX > rainyx && mouseX < (rainyx + buttonw)) //this is checking the x mouse
-
+        if((mouseX > rainyx && mouseX < (rainyx + buttonw)) && (mouseY > rainyy && mouseY < (rainyy + buttonh)))//this is checking the x mouse
         {
-            if(mouseY > rainyy && mouseY < (rainyy + buttonh)) // this is also checking the y mouse function
-
-            {
-                mode = 1;
-
-            } 
+            
+            mode = 1;
+            swTrack.pause();
+            sTrack.pause();
+            cTrack.pause();
+            rTrack.play();
+            rTrack.loop();
 
         }    
-            if(mouseX > snowx && mouseX < (snowx + buttonw)) //this is checking the x mouse
-
+        else if((mouseX > snowx && mouseX < (snowx + buttonw)) && (mouseY > snowy && mouseY < (snowy + buttonh))) //this is checking the x mouse
         {
-            if(mouseY > snowy && mouseY < (snowy + buttonh)) // this is also checking the y mouse function
-
-            {
-
-                mode = 2;
-
-            } 
-
+           
+            mode = 2;
+            rTrack.pause();
+            sTrack.pause();
+            cTrack.pause();
+            swTrack.play();
+            swTrack.loop();
+            
         }     
-        if(mouseX > cloudyx && mouseX < (cloudyx + buttonw)) //this is checking the x mouse
-
+ 
+        else if((mouseX > cloudyx && mouseX < (cloudyx + buttonw)) && (mouseY > cloudyy && mouseY < (cloudyy + buttonh))) //this is checking the x mouse
         {
-
-            if(mouseY > cloudyy && mouseY < (cloudyy + buttonh)) // this is also checking the y mouse function
-
-            {
-
-                mode = 3;
-
-            } 
-
-            if(mouseX > sunnyx && mouseX < (sunnyx + buttonw)) //this is checking the x mouse
-
-            {
-    
-                if(mouseY > sunnyy && mouseY < (sunnyy + buttonh)) // this is also checking the y mouse function
-    
-                {
-    
-                    mode = 4;    
-
+            
+            mode = 3;
+            swTrack.pause();
+            sTrack.pause();
+            rTrack.pause();
+            cTrack.play();
+            cTrack.loop();
+             
         }
 
-    }
+        else if((mouseX > sunnyx && mouseX < (sunnyx + buttonw)) && (mouseY > sunnyy && mouseY < (sunnyy + buttonh))) //this is checking the x mouse
+        {
+            
+            mode = 4;
+            swTrack.pause();
+            rTrack.pause();
+            cTrack.pause();
+            sTrack.play();
+            sTrack.loop();
+        
+        }
 
+
+       
+    }
 
 
     public void settings()
@@ -246,7 +255,7 @@ public class UI extends PApplet
 
             } 
 
-        }
+        } 
 
         else if (mode == 3)
 
