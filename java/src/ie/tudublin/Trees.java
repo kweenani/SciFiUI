@@ -21,10 +21,10 @@ public class Trees {
     {
         ui.stroke(0, 255, 0);
         ui.fill(0, 255, 0);
-        ui.ellipse((x + 30), y, 100, 80);
-        ui.ellipse((x + 30) + 120, y, 120, 70);
-        ui.ellipse((x + 30) + 280, y, 120, 70);
-        ui.ellipse((x + 30) + 450, y, 120, 70);
+        ui.ellipse((x + 30), y, 130, 80);
+        ui.ellipse((x + 30) + 140, y, 130, 80);
+        ui.ellipse((x + 30) + 280, y, 130, 80);
+        ui.ellipse((x + 30) + 430, y, 130, 80);
         ui.noStroke();
         ui.noFill();
     }
@@ -43,9 +43,9 @@ public class Trees {
         ui.stroke(153, 0, 0);
         ui.fill(153, 0, 0);
         ui.rect(x, y, w, h);
-        ui.rect(x + 120, y, w, h);
-        ui.rect(x + 250, y, w, h);
-        ui.rect(x + 350, y, w, h);
+        ui.rect(x + 140, y, w, h);
+        ui.rect(x + 280, y, w, h);
+        ui.rect(x + 430, y, w, h);
         ui.noStroke();
         ui.noFill();
 
