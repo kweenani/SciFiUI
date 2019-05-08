@@ -99,7 +99,7 @@ This is an image using a relative URL:
 
 This is a youtube video:
 
-[![YouTube](images/sunny.PNG)](https://youtu.be/xK9b0SmcMYQ)
+[![YouTube](images/homep.PNG)](https://youtu.be/xK9b0SmcMYQ)
 
 This is a table:
 
