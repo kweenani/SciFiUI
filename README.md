@@ -91,7 +91,7 @@ public void render()
 
 This is an image using a relative URL:
 
-![An image](Images/homep.PNG)
+![An image](images/homep.PNG)
 
 This is an image using an absolute URL:
 
